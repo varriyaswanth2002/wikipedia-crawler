@@ -1,4 +1,4 @@
-package tech.crawler;
+package tech.crawler.entity;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -6,10 +6,11 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import tech.crawler.global.HttpURLConnectionExample;
 
 import java.util.Date;
 
-public class WikipediaDownloader implements Runnable {
+public class WikipediaDownloader {
 
 
     private String keyword;
@@ -21,15 +22,15 @@ public class WikipediaDownloader implements Runnable {
         this.keyword = keyword;
     }
 
-    @Override
-    public void run() {
+
+    public WikiResult getResult() {
         //1. Get Clean keyword!
         //2. Get the url for Wikipedia
         //3. Make a GET request to wikiPedia!
         //4. parsing the useful result using jsoup
         //5. showing results to the user!
         if(this.keyword == null || this.keyword.isEmpty()){
-            return;
+            return null;
         }
         //STEP 1
         this.keyword = this.keyword.trim().replaceAll("[ ]+","_");//[ ]+ is the regular expression for spaces continuously
@@ -71,9 +72,8 @@ public class WikipediaDownloader implements Runnable {
         WikiResult wikiResult = new WikiResult(this.keyword,response,imageUrl);
         //PUSH RESULT INTO DATABASE
         //System.out.println(new Gson().toJson(wikiResult));
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        String json = gson.toJson(wikiResult);
-        System.out.println(json);
+        //Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return wikiResult;
 
     }
 
@@ -81,15 +81,4 @@ public class WikipediaDownloader implements Runnable {
         return "https://en.wikipedia.org/wiki/"+cleanKeyword;
     }
 
-    public static void main(String[] args) {
-        TaskManager taskManager = new TaskManager(20);
-        String arr[]={"India","United States"};
-        System.out.println("This side is varri yaswanth");
-        System.out.println("Running wikipedia downloader at "+new Date().toString());
-        for(String keyword:arr) {
-            WikipediaDownloader wikipediaDownloader = new WikipediaDownloader(keyword);
-            taskManager.waitTillQueueIsFreeAndAddTask(wikipediaDownloader);
-        }
-
-    }
 }

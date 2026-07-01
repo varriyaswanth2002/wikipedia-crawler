@@ -1,4 +1,4 @@
-package tech.crawler;
+package tech.crawler.global;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
