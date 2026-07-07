@@ -28,5 +28,5 @@ A high-performance Java web application built on Spring MVC that concurrently cr
 
 ## Full Project Documentation
 
-The complete technical report, code structure analysis, compilation timelines, and environment verification logs are available in the repository documentation file: [WikiCrawlerProject.docx](./WikiCrawlerProject.docx)
+The complete technical report, code structure analysis, compilation timelines, and environment verification logs are available in the repository documentation file: [WikiCrawlerProject.pdf](./WikiCrawlerProject.pdf)
 
