@@ -1,32 +1,65 @@
 # Multithreaded Wikipedia Crawler and Frequency Analyser
 
-A high-performance Java web application built on Spring MVC that concurrently crawls Wikipedia articles based on user keywords, extracts structured text and image components, and integrates a custom Word Frequency Analyser.
+A full-stack Java web application built using **Spring MVC** and **PostgreSQL** that concurrently crawls Wikipedia articles based on user keywords, extracts structured text and image content, performs word frequency analysis, and exposes the processed data through REST APIs and dynamic web pages.
 
-## System Features
+## Technologies
 
-* **Concurrent Multi-Threading**: Implements Java's Runnable interface to execute data scraping pipelines for multiple keywords simultaneously, avoiding main thread block.
-* **HTML Content Parsing**: Utilizes JSoup to extract and sanitize remote HTML DOM hierarchies, isolating article text blocks from primary image coordinates.
-* **JSON Serialization Engine**: Integrates GSON to serialize data objects into lightweight web payloads.
-* **Word Frequency Analytics**: Features a standalone processing engine that calculates exact word distributions and term densities from raw text files.
-* **Database Management**: Configured to interface with a local PostgreSQL database cluster using jOOQ queries for persistent data operations.
+**Backend:** Java, Spring MVC
 
-## Technical Architecture
+**Frontend:** JSP, HTML, CSS, JavaScript
 
-* **Backend Core**: Java Spring MVC
-* **Build System**: Maven
-* **Core Libraries**: JSoup (HTML Scraper), GSON (JSON Engine)
-* **Deployment Server**: Jetty Web Container Plugin
-* **Frontend Components**: JavaServer Pages (JSP), Responsive JavaScript, CSS3
+**Database:** PostgreSQL using jOOQ
+
+**Libraries:** JSoup, Gson
+
+**Build Tool:** Maven
+
+**Deployment:** Jetty Plugin
+
+**Concurrency:** Java Multithreading (Runnable Interface)
+
+## System Core Features
+
+- Concurrent Wikipedia article crawling using Java multithreading (`Runnable`)
+- HTML parsing and content extraction using JSoup
+- JSON serialization using Gson
+- Word Frequency Analysis for uploaded text files
+- PostgreSQL integration using jOOQ
+- Dynamic HTML rendering of crawled Wikipedia content
+- REST APIs for structured JSON responses
+
+## Technical Architecture Stack
+
+**Backend Framework:** Java Spring MVC
+
+**Database Query Engine:** jOOQ
+
+**Database Server:** PostgreSQL
+
+**Libraries:** JSoup, Gson
+
+**Frontend:** JSP, HTML, CSS, JavaScript
+
+**Build Tool:** Maven
+
+**Deployment:** Jetty Plugin
 
 ## Application Routes
 
-* `/helloworld` - Basic health check endpoint confirming view resolver connectivity.
-* `/login/user` - Dedicated portal layout for student authentication logs.
-* `/api/time` - Dynamic endpoint exposing current system epoch time parameters.
-* `/api/wiki?keyword=YOUR_TERM` - Returns structural text summaries and absolute image source links in raw JSON format.
-* `/api/wiki/html?keyword=YOUR_TERM` - Renders scraped Wikipedia datasets directly into a clean, readable web page layout.
+- `/helloworld` – Health check endpoint
+- `/login/user` – User login portal
+- `/api/time` – Returns current server time
+- `/api/wiki?keyword=YOUR_TERM` – Returns Wikipedia data in JSON format
+- `/api/wiki/html?keyword=YOUR_TERM` – Displays crawled content in HTML format
 
-## Full Project Documentation
+## Project Documentation
 
-The complete technical report, code structure analysis, compilation timelines, and environment verification logs are available in the repository documentation file: [WikiCrawlerProject.pdf](./WikiCrawlerProject.pdf)
+The repository contains **[WikiCrawlerProject.pdf](./WikiCrawlerProject.pdf)**, which includes:
 
+- Complete System Architecture
+- Folder Structure
+- Database Schema
+- REST API Screenshots
+- User Interface Screenshots
+- Project Workflow
+- Implementation Details
